@@ -1,0 +1,17 @@
+<script>
+  setTimeout(function(){
+    $('#message').fadeOut('slow')
+},3000)
+
+</script>
+
+
+{% if messages %}
+{% for message in messages %}
+<div {% if message.tags %} id="message" class="text-center fw-bold fst-italic alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" {% endif %}>
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{% endif %}
+    <strong> {{ message }}</strong>
+    <!-- <button type="button" class="btn-close" aria-hidden="true" data-bs-dismiss="alert" aria-label="Close"></button> -->
+  </div>
+{% endfor %}
+{% endif %}
